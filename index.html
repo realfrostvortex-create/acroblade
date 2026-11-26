@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:">
+<meta name="referrer" content="no-referrer">
+<script>if(top!==self){try{top.location=self.location}catch(e){document.documentElement.innerHTML=""}}</script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Acroblade – Download for Windows</title>
+<meta name="description" content="Download Acroblade, a fast grapple-and-sword action game for Windows. Free installer, version 1.1.0.">
+<link rel="icon" href="favicon.png">
+<meta property="og:title" content="Acroblade – Download for Windows"><meta property="og:description" content="Grapple, swing and slash. Free Windows download."><meta property="og:image" content="og.jpg">
+<style>
+:root{--bg:#07101c;--ink:#e8f1fb;--mut:#8fa6bd;--line:#1c2f47;--card:#0d1a2b}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,Segoe UI,Roboto,sans-serif}
+main{max-width:860px;margin:0 auto;padding:40px 20px}
+img.logo{width:96px;border-radius:20px}h1{font-size:clamp(40px,8vw,72px);letter-spacing:.06em;margin:10px 0 4px}
+.tag{color:var(--mut);letter-spacing:.3em;font-size:12px}
+.btn{display:inline-block;margin:26px 0 8px;padding:18px 34px;border-radius:14px;background:linear-gradient(135deg,#1aa6d6,#2a6bff);color:#fff;font-weight:800;font-size:20px;text-decoration:none}
+.btn small{display:block;font-weight:400;font-size:13px;opacity:.85}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin:22px 0}
+table{width:100%;border-collapse:collapse;font-size:14px}td{padding:8px 0;border-bottom:1px solid var(--line)}td:first-child{color:var(--mut);width:34%}
+code{word-break:break-all;font-size:12px}.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px}.shots img{width:100%;border-radius:10px;border:1px solid var(--line)}
+a{color:#6cc4ff}.mut{color:var(--mut);font-size:14px}
+</style></head><body><main>
+<img class="logo" src="logo.png" alt="Acroblade logo"><div class="tag">GRAPPLE · SWING · SLASH</div><h1>ACROBLADE</h1>
+<p>A fast grapple-and-sword action game. Swing across the arena, fight bots, or play online.</p>
+<a class="btn" id="dl" href="#">⬇ DOWNLOAD FOR WINDOWS<small>Acroblade-Setup.exe · version 1.1.0 · 77 MB</small></a>
+<p class="mut">Windows 10 or 11, 64-bit. Free.</p>
+<div class="card"><table>
+<tr><td>Memory</td><td>4 GB or more</td></tr><tr><td>Graphics</td><td>Any GPU with WebGL</td></tr><tr><td>Disk</td><td>About 300 MB</td></tr>
+<tr><td>SHA-256</td><td><code>2495175932aee36816fa68a575d6cc455e6af839a8ebe7606ec260c4c5b7f601</code></td></tr></table></div>
+<div class="card"><b>Install steps</b><ol><li>Click Download and run <i>Acroblade-Setup.exe</i>.</li><li>If Windows SmartScreen warns, click <b>More info</b>, then <b>Run anyway</b>. The installer is not code-signed yet.</li><li>Follow the installer, then start Acroblade from the Start menu or desktop.</li></ol>
+<p class="mut">To verify the file, run <code>certutil -hashfile Acroblade-Setup.exe SHA256</code> in Command Prompt and compare it with the checksum above.</p></div>
+<div class="shots" id="shots"></div>
+<p class="mut">Phone and Mac versions are not available yet. <a href="SECURITY.md">Security</a></p>
+<script>
+const WIN_URL = 'https://github.com/realfrostvortex-create/acroblade/releases/latest/download/Acroblade-Setup.exe';
+document.getElementById('dl').href = WIN_URL || '#';
+const SHOTS=['01-dusk-city.jpg', '02-night-rain.jpg', '03-harbor-yard.jpg', '04-forest-snow.jpg'];const s=document.getElementById('shots');for(const n of SHOTS){const i=document.createElement('img');i.src='images/'+n;i.alt='Acroblade screenshot';i.loading='lazy';s.appendChild(i)}
+
+</script></main></body></html>
