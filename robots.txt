@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://realfrostvortex-create.github.io/acroblade/sitemap.xml
