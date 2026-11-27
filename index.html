@@ -7,10 +7,12 @@
 <title>Acroblade – Download for Windows</title>
 <meta name="description" content="Download Acroblade, a fast grapple-and-sword action game for Windows. Free installer, version 1.1.0.">
 <link rel="icon" href="favicon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#070c18">
 <link rel="canonical" href="https://realfrostvortex-create.github.io/acroblade/">
 <meta property="og:url" content="https://realfrostvortex-create.github.io/acroblade/"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image">
 <meta name="keywords" content="Acroblade, grapple game, sword game, Windows game download, free action game">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Acroblade","operatingSystem":"Windows 10, Windows 11","applicationCategory":"GameApplication","softwareVersion":"1.1.0","url":"https://realfrostvortex-create.github.io/acroblade/","image":"https://realfrostvortex-create.github.io/acroblade/og.jpg","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Acroblade","operatingSystem":"Windows 10, Windows 11","applicationCategory":"GameApplication","softwareVersion":"1.1.0","url":"https://realfrostvortex-create.github.io/acroblade/","image":"https://realfrostvortex-create.github.io/acroblade/og.jpg","description":"Free grapple-and-sword action game for Windows with BLITZ mode and online play.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
 <meta property="og:title" content="Acroblade – Download for Windows"><meta property="og:description" content="Grapple, swing and slash. Free Windows download."><meta property="og:image" content="https://realfrostvortex-create.github.io/acroblade/og.jpg">
 <style>
 :root{--bg:#07101c;--ink:#e8f1fb;--mut:#8fa6bd;--line:#1c2f47;--card:#0d1a2b}
@@ -24,21 +26,68 @@ img.logo{width:96px;border-radius:20px}h1{font-size:clamp(40px,8vw,72px);letter-
 table{width:100%;border-collapse:collapse;font-size:14px}td{padding:8px 0;border-bottom:1px solid var(--line)}td:first-child{color:var(--mut);width:34%}
 code{word-break:break-all;font-size:12px}.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px}.shots img{width:100%;border-radius:10px;border:1px solid var(--line)}
 a{color:#6cc4ff}.mut{color:var(--mut);font-size:14px}
+
+.ov{position:fixed;inset:0;background:#000b;display:none;align-items:center;justify-content:center;padding:18px;z-index:9}.ov.on{display:flex}
+.box{background:var(--card);border:1px solid var(--line);border-radius:18px;max-width:520px;width:100%;padding:26px}.box h2{margin:0 0 6px;font-size:26px}
+.ok{display:inline-flex;width:46px;height:46px;border-radius:50%;background:#1fbf75;color:#04140c;font-size:26px;align-items:center;justify-content:center;margin-bottom:10px}
+.box ol{padding-left:20px;margin:10px 0}.box li{margin:6px 0}.x{margin-top:14px;padding:12px 20px;border-radius:10px;border:1px solid var(--line);background:#0b1626;color:var(--ink);font-weight:700;cursor:pointer}
+.alt{margin:4px 0 0}.hide{display:none}
 </style></head><body><main>
 <img class="logo" src="logo.png" alt="Acroblade logo"><div class="tag">GRAPPLE · SWING · SLASH</div><h1>ACROBLADE</h1>
 <p>A fast grapple-and-sword action game. Swing across the arena, fight bots, or play online.</p>
-<a class="btn" id="dl" href="#">⬇ DOWNLOAD FOR WINDOWS<small>Acroblade-Setup.exe · version 1.1.0 · 77 MB</small></a>
-<p class="mut">Windows 10 or 11, 64-bit. Free.</p>
+<a class="btn" id="dl" href="#" download>⬇ DOWNLOAD FOR WINDOWS<small>Acroblade-Setup.exe · version 1.1.0 · 77 MB</small></a>
+<a class="btn hide" id="ph" href="#">📱 INSTALL ON PHONE<small>Adds Acroblade to your home screen · free</small></a>
+<p class="mut alt" id="altd"><a href="#" id="swp">Looking for the other device? Switch</a></p>
+<p class="mut">Windows 10 or 11, 64-bit. Free. Phone version runs as an installed app.</p>
 <div class="card"><table>
 <tr><td>Memory</td><td>4 GB or more</td></tr><tr><td>Graphics</td><td>Any GPU with WebGL</td></tr><tr><td>Disk</td><td>About 300 MB</td></tr>
 <tr><td>SHA-256</td><td><code>2495175932aee36816fa68a575d6cc455e6af839a8ebe7606ec260c4c5b7f601</code></td></tr></table></div>
 <div class="card"><b>Install steps</b><ol><li>Click Download and run <i>Acroblade-Setup.exe</i>.</li><li>If Windows SmartScreen warns, click <b>More info</b>, then <b>Run anyway</b>. The installer is not code-signed yet.</li><li>Follow the installer, then start Acroblade from the Start menu or desktop.</li></ol>
 <p class="mut">To verify the file, run <code>certutil -hashfile Acroblade-Setup.exe SHA256</code> in Command Prompt and compare it with the checksum above.</p></div>
+<div class="card" id="about"><h2 style="margin-top:0">About Acroblade</h2>
+<p>Acroblade is a free grapple-and-sword action game for Windows. Swing with twin grapple hooks, slash enemy bots, chain combos for a higher score, and race the clock in BLITZ mode, a 90-second score attack.</p>
+<ul><li>Fast movement: swing, glide and fight in 3D arenas</li><li>Bot battles with several weapons</li><li>Online matches for up to 4 players</li><li>Touch controls with gyro aiming for phones</li></ul>
+<h3>Questions</h3><p><b>Is Acroblade free?</b> Yes. Download it for free.<br><b>Which systems does it run on?</b> Windows 10 and 11 (64-bit), and phones as an installed app.<br><b>Is it safe?</b> Check the SHA-256 shown above against your download.</p></div>
 <div class="shots" id="shots"></div>
-<p class="mut">Phone and Mac versions are not available yet. <a href="SECURITY.md">Security</a></p>
+<div class="card" id="share"><b>Share Acroblade</b><p class="mut" style="margin:6px 0 10px">Send the game to a friend.</p>
+<a class="x" style="text-decoration:none;display:inline-block;margin:0 6px 6px 0" id="s-wa" href="#">WhatsApp</a><a class="x" style="text-decoration:none;display:inline-block;margin:0 6px 6px 0" id="s-x" href="#">X / Twitter</a><a class="x" style="text-decoration:none;display:inline-block;margin:0 6px 6px 0" id="s-rd" href="#">Reddit</a><button class="x" style="margin:0 6px 6px 0" id="s-cp">Copy link</button></div>
+<div class="mut" id="links" style="margin:20px 0">
+<a href="https://github.com/realfrostvortex-create/acroblade">Source and releases on GitHub</a> · <a href="https://github.com/realfrostvortex-create/acroblade/releases/latest">Latest release</a> · <a href="SECURITY.md">Security</a> · <a href="SHA256.txt">Checksum</a> · <a href="sitemap.xml">Sitemap</a></div>
+<p class="mut">Mac and Android APK versions are not available yet. <a href="SECURITY.md">Security</a></p>
+
+<div class="ov" id="ovw"><div class="box"><div class="ok">✓</div><h2>Download started</h2>
+<p class="mut">Acroblade-Setup.exe is downloading to your Downloads folder.</p>
+<ol><li>When it finishes, click <b>Acroblade-Setup.exe</b> in the download panel at the top right of your browser (or open your Downloads folder).</li><li>If Windows says "protected your PC", click <b>More info</b>, then <b>Run anyway</b>.</li><li>Follow the installer. Acroblade appears in your Start menu.</li></ol>
+<p class="mut">Nothing happening? <a id="retry" href="#">Download again</a></p><button class="x" data-close>Close</button></div></div>
+<div class="ov" id="ovp"><div class="box"><div class="ok">✓</div><h2 id="pt">Install Acroblade</h2><div id="pb"></div><button class="x" data-close>Close</button></div></div>
 <script>
 const WIN_URL = 'https://github.com/realfrostvortex-create/acroblade/releases/latest/download/Acroblade-Setup.exe';
-document.getElementById('dl').href = WIN_URL || '#';
+
+const $=id=>document.getElementById(id);
+const ua=navigator.userAgent, isIOS=/iPhone|iPad|iPod/.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1), isAnd=/Android/.test(ua), isMob=isIOS||isAnd;
+let dip=null, installed=false, view=isMob?'phone':'pc';
+function setView(v){view=v;$('dl').classList.toggle('hide',v!=='pc');$('ph').classList.toggle('hide',v!=='phone');$('swp').textContent=v==='pc'?'On a phone? Install the phone version':'On a PC? Get the Windows installer';}
+setView(view);
+$('swp').onclick=e=>{e.preventDefault();setView(view==='pc'?'phone':'pc')};
+function open(id){$(id).classList.add('on')}
+document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>b.closest('.ov').classList.remove('on'));
+function startDl(){const a=document.createElement('a');a.href=WIN_URL;a.download='Acroblade-Setup.exe';document.body.appendChild(a);a.click();a.remove();}
+$('dl').onclick=e=>{e.preventDefault();startDl();open('ovw')};
+$('retry').onclick=e=>{e.preventDefault();startDl()};
+
+const SU=encodeURIComponent('https://realfrostvortex-create.github.io/acroblade/'),ST=encodeURIComponent('Acroblade: free grapple-and-sword action game for Windows');
+$('s-wa').href='https://wa.me/?text='+ST+'%20'+SU;$('s-x').href='https://twitter.com/intent/tweet?text='+ST+'&url='+SU;$('s-rd').href='https://www.reddit.com/submit?url='+SU+'&title='+ST;
+$('s-cp').onclick=async()=>{try{await navigator.clipboard.writeText(decodeURIComponent(SU));$('s-cp').textContent='Copied ✓'}catch(e){$('s-cp').textContent=decodeURIComponent(SU)}};
+function pmsg(t,h){$('pt').textContent=t;$('pb').innerHTML=h;open('ovp')}
+if(isMob&&'serviceWorker' in navigator&&location.protocol==='https:')navigator.serviceWorker.register('sw.js').catch(()=>{});
+addEventListener('beforeinstallprompt',e=>{e.preventDefault();dip=e});
+addEventListener('appinstalled',()=>{installed=true;pmsg('Installed','<p>Acroblade is on your home screen. Open it from there. It runs full screen in landscape.</p>')});
+$('ph').onclick=async e=>{e.preventDefault();
+ if(dip){dip.prompt();const r=await dip.userChoice;dip=null;if(r.outcome!=='accepted')pmsg('Install cancelled','<p>Tap <b>Install on phone</b> again whenever you are ready.</p>');return;}
+ if(isIOS)return pmsg('Install on iPhone / iPad','<ol><li>Open this page in <b>Safari</b>.</li><li>Tap the <b>Share</b> button.</li><li>Tap <b>Add to Home Screen</b>, then <b>Add</b>.</li></ol><p class="mut">Apple does not allow a one-tap install from a website.</p>');
+ if(isAnd)return pmsg('Install on Android','<ol><li>Open this page in <b>Chrome</b>.</li><li>Tap the <b>⋮</b> menu.</li><li>Tap <b>Install app</b> (or <b>Add to Home screen</b>).</li></ol>');
+ pmsg('Install on your phone','<p>Open this page on your phone and tap <b>Install on phone</b>. Scan this address or type it in your phone browser:</p><p><code>'+location.href.split('#')[0]+'</code></p>');};
+
 const SHOTS=['01-dusk-city.jpg', '02-night-rain.jpg', '03-harbor-yard.jpg', '04-forest-snow.jpg'];const s=document.getElementById('shots');for(const n of SHOTS){const i=document.createElement('img');i.src='images/'+n;i.alt='Acroblade screenshot';i.loading='lazy';s.appendChild(i)}
 
 </script></main></body></html>
