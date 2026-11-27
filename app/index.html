@@ -7705,7 +7705,8 @@ addEventListener('blur', () => { for (const k in keys) keys[k] = false; P.spaceH
     #tc .tb.on{background:rgba(255,200,90,.55);border-color:#ffd36b;transform:scale(.94)}
     #tc .tb.big{font-size:14px;background:rgba(255,120,60,.35);border-color:#ff9a5a}
     #tc .tb.hk{background:rgba(70,200,255,.28);border-color:#6fe0ff}
-    #tcs{position:absolute;width:120px;height:120px;border-radius:50%;border:2px solid rgba(255,255,255,.35);background:rgba(255,255,255,.07);display:none;pointer-events:none}
+    #tcs{position:absolute;width:120px;height:120px;border-radius:50%;border:2px solid rgba(255,255,255,.3);background:rgba(255,255,255,.06);display:block;opacity:.55;pointer-events:none}
+    #tcs.act{opacity:1;border-color:rgba(255,255,255,.55);background:rgba(255,255,255,.12)}
     #tcs i{position:absolute;left:50%;top:50%;width:54px;height:54px;margin:-27px;border-radius:50%;background:rgba(255,255,255,.35);border:2px solid rgba(255,255,255,.6)}
     #tcrot{position:fixed;inset:0;z-index:60;display:none;align-items:center;justify-content:center;background:#05080ff5;color:#eef3f8;font:700 20px system-ui;text-align:center;letter-spacing:.08em}
     @media (orientation:portrait){ #tcrot{display:flex} }
@@ -7724,9 +7725,14 @@ addEventListener('blur', () => { for (const k in keys) keys[k] = false; P.spaceH
   const lp = document.createElement('div'); lp.className = 'pad'; lp.style.cssText = 'left:0;width:42%'; root.appendChild(lp);
   let sid = null, ox = 0, oy = 0; const knob = stick.firstChild;
   const setMove = (x, y) => { kd('KeyD', x > 0.35); kd('KeyA', x < -0.35); kd('KeyW', y < -0.35); kd('KeyS', y > 0.35); };
-  lp.addEventListener('pointerdown', e => { if (sid !== null) return; sid = e.pointerId; try { lp.setPointerCapture(sid); } catch(x){} ox = e.clientX; oy = e.clientY; stick.style.display = 'block'; stick.style.left = (ox - 60) + 'px'; stick.style.top = (oy - 60) + 'px'; knob.style.transform = ''; });
+  const placeStick = (x, y) => { stick.style.left = (x - 60) + 'px'; stick.style.top = (y - 60) + 'px'; };
+  const placeIdle = () => { if (sid !== null) return; const W = innerWidth, H = innerHeight; placeStick(TS.lefty ? W - 100 : 100, Math.max(70, H - 135)); };
+  lp.addEventListener('pointerdown', e => { if (sid !== null) return; sid = e.pointerId; try { lp.setPointerCapture(sid); } catch(x){} const W = innerWidth, H = innerHeight;
+    ox = Math.min(Math.max(e.clientX, 70), W - 70); oy = Math.min(Math.max(e.clientY, H*0.45), H - 70);   // keep the stick in the lower part of the screen
+    stick.classList.add('act'); placeStick(ox, oy); knob.style.transform = ''; setMove(0, 0); });
   lp.addEventListener('pointermove', e => { if (e.pointerId !== sid) return; let dx = e.clientX - ox, dy = e.clientY - oy; const L = Math.hypot(dx, dy), R = 56; if (L > R){ dx *= R/L; dy *= R/L; } knob.style.transform = `translate(${dx}px,${dy}px)`; setMove(dx/R, dy/R); });
-  const endStick = e => { if (e.pointerId !== sid) return; sid = null; stick.style.display = 'none'; setMove(0, 0); };
+  const endStick = e => { if (e && e.pointerId !== sid) return; sid = null; stick.classList.remove('act'); knob.style.transform = ''; setMove(0, 0); placeIdle(); };
+  addEventListener('resize', placeIdle); addEventListener('orientationchange', () => setTimeout(placeIdle, 200)); placeIdle();
   lp.addEventListener('pointerup', endStick); lp.addEventListener('pointercancel', endStick);
   // right side: look pad
   const rp = document.createElement('div'); rp.className = 'pad'; rp.style.cssText = 'right:0;width:58%'; root.appendChild(rp);
@@ -7810,7 +7816,7 @@ addEventListener('blur', () => { for (const k in keys) keys[k] = false; P.spaceH
   tm.querySelector('#tsx').addEventListener('click', () => { tm.style.display = 'none'; });
   TOUCH.open = () => { if (state === 'play') pause(); tm.style.display = 'flex'; };
   applyLayout(); if (TS.saver){ SETTINGS.quality = 'low'; }
-  setInterval(() => { const on = state === 'play'; root.style.display = on ? 'block' : 'none'; if (!on && sid !== null){ sid = null; stick.style.display = 'none'; setMove(0, 0); } }, 120);
+  setInterval(() => { const on = state === 'play'; root.style.display = on ? 'block' : 'none'; if (!on && sid !== null) endStick(null); else if (sid === null) placeIdle(); }, 120);
 })();
 
 // ====================================================================== hook logic
