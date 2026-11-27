@@ -1,0 +1,3 @@
+Copyright (c) 2026 the Acroblade developer. All rights reserved.
+
+The Acroblade game, its code, name and original content may not be copied, sold or redistributed without permission. Third-party components are covered by their own licences; see THIRD-PARTY-NOTICES.md. Use of the game is governed by https://acroblade.com/terms.html
